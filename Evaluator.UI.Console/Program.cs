@@ -1,5 +1,4 @@
 ﻿
-
 using Evaluator.Logic;
 
 Console.WriteLine("Expresions Evaluator");
