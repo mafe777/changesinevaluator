@@ -2,15 +2,15 @@
 {
     public class MyEvaluator
     {
-        public static decimal Evaluate(string infix)
+        public static double Evaluate(string infix)
         {
             var postfix = ToPostfix(infix);
             return Calculate(postfix);
         }
 
-        private static decimal Calculate(string postfix)
+        private static double Calculate(string postfix)
         {
-            var stack = new Stack<decimal>(100);
+            var stack = new Stack<double>(100);
             for (int i = 0; i < postfix.Length; i++)
             {
                 if (IsOperator(postfix[i]))
@@ -29,16 +29,16 @@
             return stack.Pop();
         }
 
-        private static decimal ToDouble(char number)
+        private static double ToDouble(char number)
         {
-            return (decimal)number - 48;
+            return (double)number - 48;
         }
 
-        private static decimal Calculate(decimal number1, char @operator, decimal number2)
+        private static double Calculate(double number1, char @operator, double number2)
         {
             switch (@operator)
             {
-                case '^': return Math.Pow(number1,number2);
+                case '^': return Math.Pow(number1, number2);
                 case '*': return number1 * number2;
                 case '/': return number1 / number2;
                 case '+': return number1 + number2;
